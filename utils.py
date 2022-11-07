@@ -22,19 +22,6 @@ def mean_absolute_error(preds: Tensor, targets: Tensor) -> float:
     return (preds.view(-1) - targets.view(-1)).abs().mean().item()
 
 
-class AvgMeter:
-    def __init__(self):
-        self.value = 0.
-        self.n = 0
-
-    def add(self, value):
-        self.value += value
-        self.n += 1
-
-    def compute(self):
-        return self.value / self.n
-
-
 class TensorboardLogger(SummaryWriter):
     def __init__(
         self,
